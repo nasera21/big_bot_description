@@ -7,7 +7,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>meshes/cavecorner01.dae</uri>
+            <uri>model://Cave Corner 01 Type B/meshes/cavecorner01.dae</uri>
             <scale>1.005 1.005 1.0</scale>
           </mesh>
         </geometry>
@@ -15,7 +15,7 @@
       <visual name="CaveWall_visual">
         <geometry>
           <mesh>
-            <uri>meshes/cavecorner01.dae</uri>
+            <uri>model://Cave Corner 01 Type B/meshes/cavecorner01.dae</uri>
             <submesh>
               <name>CaveWall</name>
               <center>false</center>
@@ -35,8 +35,8 @@
           </pbr>
           <!-- fallback to script if no PBR support-->
           <script>
-            <uri>materials/scripts/</uri>
-            <uri>materials/textures/</uri>
+            <uri>model://Cave Corner 01 Type B/materials/scripts/</uri>
+            <uri>model://Cave Corner 01 Type B/materials/textures/</uri>
             <name>CaveTile/CaveWall_Diffuse</name>
           </script>
         </material>
@@ -44,7 +44,7 @@
       <visual name="StriatedRock_visual">
         <geometry>
           <mesh>
-            <uri>meshes/cavecorner01.dae</uri>
+            <uri>model://Cave Corner 01 Type B/meshes/cavecorner01.dae</uri>
             <submesh>
               <name>StriatedRock</name>
               <center>false</center>
@@ -64,8 +64,8 @@
           </pbr>
           <!-- fallback to script if no PBR support-->
           <script>
-            <uri>materials/scripts/</uri>
-            <uri>materials/textures/</uri>
+            <uri>model://Cave Corner 01 Type B/materials/scripts/</uri>
+            <uri>model://Cave Corner 01 Type B/materials/textures/</uri>
             <name>CaveTile/StriatedRock_Diffuse</name>
           </script>
         </material>
@@ -73,7 +73,7 @@
       <visual name="RockPile_visual">
         <geometry>
           <mesh>
-            <uri>meshes/cavecorner01.dae</uri>
+            <uri>model://Cave Corner 01 Type B/meshes/cavecorner01.dae</uri>
             <submesh>
               <name>RockPile</name>
               <center>false</center>
@@ -93,8 +93,8 @@
           </pbr>
           <!-- fallback to script if no PBR support-->
           <script>
-            <uri>materials/scripts/</uri>
-            <uri>materials/textures/</uri>
+            <uri>model://Cave Corner 01 Type B/materials/scripts/</uri>
+            <uri>model://Cave Corner 01 Type B/materials/textures/</uri>
             <name>CaveTile/RockPile_Diffuse</name>
           </script>
         </material>
