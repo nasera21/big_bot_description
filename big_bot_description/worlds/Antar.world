@@ -1,0 +1,735 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    
+    <model name='cave_straight_01'>
+      <static>1</static>
+      <link name='base_link'>
+        <collision name='collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://cave_straight_01/meshes/cavestraight01.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='CaveWall_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cave_straight_01/meshes/cavestraight01.dae</uri>
+              <submesh>
+                <name>CaveWall</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://cave_straight_01/materials/scripts/</uri>
+              <uri>model://cave_straight_01/materials/textures/</uri>
+              <name>CaveTile/CaveWall_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='StriatedRock_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cave_straight_01/meshes/cavestraight01.dae</uri>
+              <submesh>
+                <name>StriatedRock</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://cave_straight_01/materials/scripts/</uri>
+              <uri>model://cave_straight_01/materials/textures/</uri>
+              <name>CaveTile/StriatedRock_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='RockPile_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cave_straight_01/meshes/cavestraight01.dae</uri>
+              <submesh>
+                <name>RockPile</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://cave_straight_01/materials/scripts/</uri>
+              <uri>model://cave_straight_01/materials/textures/</uri>
+              <name>CaveTile/RockPile_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>25.8438 -3.4429 0 0 -0 0</pose>
+    </model>
+    <model name='cave_corner_01'>
+      <static>1</static>
+      <link name='base_link'>
+        <collision name='collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://Cave Corner 01 Type B/meshes/cavecorner01.dae</uri>
+              <scale>1.005 1.005 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='CaveWall_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://Cave Corner 01 Type B/meshes/cavecorner01.dae</uri>
+              <submesh>
+                <name>CaveWall</name>
+                <center>0</center>
+              </submesh>
+              <scale>1.005 1.005 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://Cave Corner 01 Type B/materials/scripts/</uri>
+              <uri>model://Cave Corner 01 Type B/materials/textures/</uri>
+              <name>CaveTile/CaveWall_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='StriatedRock_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://Cave Corner 01 Type B/meshes/cavecorner01.dae</uri>
+              <submesh>
+                <name>StriatedRock</name>
+                <center>0</center>
+              </submesh>
+              <scale>1.005 1.005 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://Cave Corner 01 Type B/materials/scripts/</uri>
+              <uri>model://Cave Corner 01 Type B/materials/textures/</uri>
+              <name>CaveTile/StriatedRock_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='RockPile_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://Cave Corner 01 Type B/meshes/cavecorner01.dae</uri>
+              <submesh>
+                <name>RockPile</name>
+                <center>0</center>
+              </submesh>
+              <scale>1.005 1.005 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://Cave Corner 01 Type B/materials/scripts/</uri>
+              <uri>model://Cave Corner 01 Type B/materials/textures/</uri>
+              <name>CaveTile/RockPile_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>25.8905 -28.179 0 0 -0 0</pose>
+    </model>
+    <model name='cave_straight_01_0'>
+      <static>1</static>
+      <link name='base_link'>
+        <collision name='collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://cave_straight_01/meshes/cavestraight01.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='CaveWall_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cave_straight_01/meshes/cavestraight01.dae</uri>
+              <submesh>
+                <name>CaveWall</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://cave_straight_01/materials/scripts/</uri>
+              <uri>model://cave_straight_01/materials/textures/</uri>
+              <name>CaveTile/CaveWall_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='StriatedRock_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cave_straight_01/meshes/cavestraight01.dae</uri>
+              <submesh>
+                <name>StriatedRock</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://cave_straight_01/materials/scripts/</uri>
+              <uri>model://cave_straight_01/materials/textures/</uri>
+              <name>CaveTile/StriatedRock_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='RockPile_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://cave_straight_01/meshes/cavestraight01.dae</uri>
+              <submesh>
+                <name>RockPile</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <script>
+              <uri>model://cave_straight_01/materials/scripts/</uri>
+              <uri>model://cave_straight_01/materials/textures/</uri>
+              <name>CaveTile/RockPile_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-8.03688 -25.5185 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>3248 357000000</sim_time>
+      <real_time>14878 523979918</real_time>
+      <wall_time>1645648900 460653481</wall_time>
+      <iterations>3248357</iterations>
+      <model name='big_bot'>
+        <pose frame=''>23.2207 11.6796 -0.005022 -1.1e-05 9e-06 -1.38629</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose frame=''>23.2207 11.6796 -0.005022 -1.1e-05 9e-06 -1.38629</pose>
+          <velocity>-0.000829 0.002081 -0.002366 0.005312 0.003384 -5.1e-05</velocity>
+          <acceleration>0.793045 -0.601103 -2.46051 2.24442 -1.04481 -0.291635</acceleration>
+          <wrench>203.587 -154.312 -631.65 0 -0 0</wrench>
+        </link>
+        <link name='w1_1'>
+          <pose frame=''>24.1447 11.0891 0.194962 -1.5e-05 0.741081 -1.3863</pose>
+          <velocity>-9.5e-05 0.000903 -0.008634 0.005287 0.003515 -0.000138</velocity>
+          <acceleration>-0.052748 0.416303 -7.95953 -0.20423 -1.06066 2.99783</acceleration>
+          <wrench>-0.881501 6.957 -133.015 0 -0 0</wrench>
+        </link>
+        <link name='w2_1'>
+          <pose frame=''>24.0071 11.8263 0.194968 -1.7e-05 0.531596 -1.3863</pose>
+          <velocity>-0.000204 0.000974 -0.004009 0.001499 0.001805 -3.1e-05</velocity>
+          <acceleration>0.112901 0.42493 -3.96418 2.6407 -0.349243 2.96951</acceleration>
+          <wrench>1.88674 7.10117 -66.247 0 -0 0</wrench>
+        </link>
+        <link name='w3_1'>
+          <pose frame=''>23.8695 12.5636 0.194976 -3.14156 0.429591 1.75531</pose>
+          <velocity>8.4e-05 0.000455 6.2e-05 -0.002168 0.000504 -0.003538</velocity>
+          <acceleration>0.307429 0.201224 0.080538 3.04345 0.248049 0.102354</acceleration>
+          <wrench>5.13757 3.36274 1.3459 0 -0 0</wrench>
+        </link>
+        <link name='w4_1'>
+          <pose frame=''>22.5719 10.7955 0.194982 -6.5e-05 1.39893 -1.38635</pose>
+          <velocity>-9e-05 0.00106 -0.005341 0.005319 0.003379 0.000425</velocity>
+          <acceleration>-0.052056 0.812035 -5.56963 -2.36312 -1.1727 0.820475</acceleration>
+          <wrench>-0.869927 13.5702 -93.0762 0 -0 0</wrench>
+        </link>
+        <link name='w5_1'>
+          <pose frame=''>22.4343 11.5328 0.194983 3.1414 1.29578 1.75512</pose>
+          <velocity>-1.1e-05 0.001098 -0.000341 -0.005628 0.000191 -8.2e-05</velocity>
+          <acceleration>0.238085 0.69514 -0.540111 0.647653 0.652689 3.05896</acceleration>
+          <wrench>3.97874 11.6168 -9.026 0 -0 0</wrench>
+        </link>
+        <link name='w6_1'>
+          <pose frame=''>22.2967 12.2701 0.194994 -3.14158 -0.039353 1.7553</pose>
+          <velocity>-0.000127 0.001066 0.003877 0.005321 0.003359 -4.8e-05</velocity>
+          <acceleration>0.185377 0.689137 3.16989 -0.225846 -1.07626 2.99367</acceleration>
+          <wrench>3.09791 11.5164 52.9733 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='bookshelf'>
+        <pose frame=''>23.5446 8.69369 0.171227 0 -0 3.07551</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>23.5446 8.69369 0.171227 0 -0 3.07551</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='cave_corner_01'>
+        <pose frame=''>25.8905 -28.179 0.343658 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose frame=''>25.8905 -28.179 0.343658 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='cave_straight_01'>
+        <pose frame=''>25.6759 -4.84627 -0.33997 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose frame=''>25.6759 -4.84627 -0.33997 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='cave_straight_01_0'>
+        <pose frame=''>1.93755 -28.3574 0.528773 0 0 -1.58851</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose frame=''>1.93755 -28.3574 0.528773 0 0 -1.58851</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <model name='bookshelf'>
+      <static>1</static>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+        </inertial>
+        <collision name='back'>
+          <pose frame=''>0 0.005 0.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.9 0.01 1.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual1'>
+          <pose frame=''>0 0.005 0.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.9 0.01 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='left_side'>
+          <pose frame=''>0.45 -0.195 0.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.4 1.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual2'>
+          <pose frame=''>0.45 -0.195 0.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.4 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='right_side'>
+          <pose frame=''>-0.45 -0.195 0.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.4 1.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual3'>
+          <pose frame=''>-0.45 -0.195 0.6 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.4 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='bottom'>
+          <pose frame=''>0 -0.195 0.03 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.4 0.06</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual4'>
+          <pose frame=''>0 -0.195 0.03 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.4 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='top'>
+          <pose frame=''>0 -0.195 1.19 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.4 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual5'>
+          <pose frame=''>0 -0.195 1.19 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.4 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='low_shelf'>
+          <pose frame=''>0 -0.195 0.43 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.4 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual6'>
+          <pose frame=''>0 -0.195 0.43 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.4 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='high_shelf'>
+          <pose frame=''>0 -0.195 0.8 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.4 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual7'>
+          <pose frame=''>0 -0.195 0.8 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.4 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>21.6999 13.2923 0 0 -0 0</pose>
+    </model>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>21.9135 17.5618 1.46396 -0 0.168816 -1.33411</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
