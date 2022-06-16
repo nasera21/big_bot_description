@@ -5,6 +5,7 @@ Big bot is a six-wheeled robot used to generate a 3D map simulation  of a V-shap
 # 1. Prerequisites
 * teleop_twist_keyboard package; source: http://wiki.ros.org/teleop_twist_keyboardhttp://wiki.ros.org/teleop_twist_keyboard
 * ouster_example package; source: https://github.com/ouster-lidar/ouster_example
+  * ouster_example package is missing the ouster_gazebo_plugins and ouster_description folders that are necessary. Can copy the two folders over from; source: https://github.com/wilselby/ouster_example
 * octomap_server package; source: https://github.com/OctoMap/octomap_mapping
 
 
@@ -28,6 +29,10 @@ Big bot is a six-wheeled robot used to generate a 3D map simulation  of a V-shap
 ##                                                                  And you are pretty much set!
 
 # 4. Setting-up the Environment
+* A base world has already been included in the gazebo.launch file. You can just use the one included, "Antar.world".
+  * In order to have the models show up and have the physics work, you need to move the "models used" folder located at: "~/catkin_ws/src/big_bot_description/models\ used/" to the overall "models" folder that was already present in the 'insert tab' which is located at "/usr/share/gazebo-9/models".
+    
+    ```sudo mv ~/catkin_ws/src/big_bot_description/models\ used/ /usr/share/gazebo-9/models```
 * Press the "insert" option in gazebo
 * If you have everything set up adequately, you should find two objects by the following names under the "models used" folder on the left plane inside gazebo
   * Cave Corner 01 Type B
