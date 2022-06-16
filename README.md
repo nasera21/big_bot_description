@@ -33,6 +33,8 @@ Big bot is a six-wheeled robot used to generate a 3D map simulation  of a V-shap
   * In order to have the models show up and have the physics work, you need to move the "models used" folder located at: "~/catkin_ws/src/big_bot_description/models\ used/" to the overall "models" folder that was already present in the 'insert tab' which is located at "/usr/share/gazebo-9/models".
     
     ```sudo mv ~/catkin_ws/src/big_bot_description/models\ used/ /usr/share/gazebo-9/models```
+    
+    *Note: The textures/visuals of the cave models aren't presently working because the links that the code use seem to not be working properly. The overall physics of the cave still works, just visually the models will look black and yellow.
 * Press the "insert" option in gazebo
 * If you have everything set up adequately, you should find two objects by the following names under the "models used" folder on the left plane inside gazebo
   * Cave Corner 01 Type B
